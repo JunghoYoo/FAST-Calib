@@ -15,21 +15,29 @@ which is included as part of this source code package.
 #include <opencv2/aruco.hpp>
 #include "common_lib.h"
 
-class QRDetect 
+class QRDetect
 {
   private:
     double marker_size_, delta_width_qr_center_, delta_height_qr_center_;
     double delta_width_circles_, delta_height_circles_;
     int min_detected_markers_;
     cv::Ptr<cv::aruco::Dictionary> dictionary_;
-  
+    // True when the input camera uses the equidistant (fisheye) distortion
+    // model. The image is undistorted once at the start of detect_qr() so that
+    // the rest of the pipeline (aruco pose, projection, colorization) can
+    // treat the camera as pinhole with zero distortion.
+    bool is_equidistant_ = false;
+    // Original fisheye distortion [k1, k2, k3, k4] used only for the initial
+    // cv::fisheye::undistortImage() call.
+    cv::Mat fisheyeDistCoeffs_;
+
   public:
     ros::Publisher qr_pub_;
     cv::Mat imageCopy_;
     cv::Mat cameraMatrix_;
     cv::Mat distCoeffs_;
 
-    QRDetect(ros::NodeHandle &nh, Params& params) 
+    QRDetect(ros::NodeHandle &nh, Params& params)
     {
       marker_size_ = params.marker_size;
       delta_width_qr_center_ = params.delta_width_qr_center;
@@ -37,14 +45,30 @@ class QRDetect
       delta_width_circles_ = params.delta_width_circles;
       delta_height_circles_ = params.delta_height_circles;
       min_detected_markers_ = params.min_detected_markers;
-      
+
+      is_equidistant_ = (params.distortion_model == "equidistant" ||
+                         params.distortion_model == "fisheye");
+
       // Initialize camera matrix
       cameraMatrix_ = (cv::Mat_<float>(3, 3) << params.fx, 0, params.cx,
                                                 0, params.fy, params.cy,
                                                 0,         0,        1);
-                                                
-      // Initialize distortion coefficients
-      distCoeffs_ = (cv::Mat_<float>(1, 5) << params.k1, params.k2, params.p1, params.p2, 0);
+
+      if (is_equidistant_) {
+        // The image will be undistorted once in detect_qr() so downstream
+        // pinhole-based code (aruco, cv::projectPoints, cv::undistort) sees
+        // an already-rectified frame with zero distortion.
+        fisheyeDistCoeffs_ = (cv::Mat_<float>(4, 1) << params.k1, params.k2,
+                                                       params.k3, params.k4);
+        distCoeffs_ = cv::Mat::zeros(1, 5, CV_32F);
+        std::cout << BOLDGREEN
+                  << "[QRDetect] Using equidistant (fisheye) camera model."
+                  << RESET << std::endl;
+      } else {
+        // Pinhole / radtan: [k1, k2, p1, p2, 0]
+        distCoeffs_ = (cv::Mat_<float>(1, 5) << params.k1, params.k2,
+                                                 params.p1, params.p2, 0);
+      }
 
       // Initialize QR dictionary
       dictionary_ = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_6X6_250);
@@ -95,8 +119,20 @@ class QRDetect
       assert(groups.size() == n_permutations);
     }
 
-    void detect_qr(cv::Mat &image, pcl::PointCloud<pcl::PointXYZ>::Ptr centers_cloud) 
-    {      
+    void detect_qr(cv::Mat &image, pcl::PointCloud<pcl::PointXYZ>::Ptr centers_cloud)
+    {
+      // For equidistant (fisheye) cameras, rectify once here so the rest of
+      // the pipeline can use plain pinhole math with zero distortion.
+      // The reference assignment also propagates the rectified image to the
+      // caller, so img_input in main.cpp is consistent for downstream
+      // colorization in projectPointCloudToImage().
+      if (is_equidistant_) {
+        cv::Mat undistorted;
+        cv::fisheye::undistortImage(image, undistorted, cameraMatrix_,
+                                    fisheyeDistCoeffs_, cameraMatrix_);
+        image = undistorted;
+      }
+
       image.copyTo(imageCopy_);
 
       // Create vector of markers corners. 4 markers * 4 corners

@@ -1,0 +1,50 @@
+# Camera intrinsics  
+  # GeoScan-S1, realsense D435i+MID360
+  # Kalibr calibration results with DataBag_2026-03-24-13-12-25
+  # camera_model: pinhole
+  # distortion_coeffs: []
+  # distortion_model: radtan
+  # intrinsics: []
+  # resolution: [1280, 720]
+  # rostopic: /camera/color/image_raw/compressed
+  fx: 900.3599136054213
+  fy: 900.9642896417072
+  cx: 638.5421116036997
+  cy: 386.3823412471366
+  k1: 0.06371336539808096
+  k2: -0.001562797938276748
+  p1: 0.007835855681807724
+  p2: -0.0016708997166851361
+
+# Calibration target parameters
+  marker_size: 0.20 # ArUco marker size (our test data uses 0.16m; adjust to match your marker size)
+  delta_width_qr_center: 0.55 # Half the distance between the centers of two markers in the horizontal direction 
+  delta_height_qr_center: 0.35 # Half the distance between the centers of two markers in the vertical direction
+  delta_width_circles: 0.5 # Distance between the centers of two circles in the horizontal direction
+  delta_height_circles: 0.4 # Distance between the centers of two circles in the vertical direction
+  circle_radius: 0.12 # Radius of the circle 
+
+# Distance filter
+  x_min: 0.5
+  x_max: 3.0
+  y_min: -1.0
+  y_max: 1.0
+  z_min: 0.0
+  z_max: 2.0
+
+# DataBag_2026-04-08-17-42-25  
+# DataBag_2026-04-08-17-44-50  
+# DataBag_2026-04-08-17-49-25  
+# DataBag_2026-04-08-17-52-41  
+# DataBag_2026-04-08-17-55-17  
+# DataBag_2026-04-09-10-09-06  
+# DataBag_2026-04-09-10-11-17  
+# DataBag_2026-04-09-10-14-25  
+
+# Input
+  lidar_topic: "/livox/lidar" # /ouster/points /livox/lidar
+  bag_path: "$(find fast_calib)/calib_data/DataBag_2026-04-09-10-14-25/data.bag"
+  image_path: "$(find fast_calib)/calib_data/DataBag_2026-04-09-10-14-25/image.png"
+
+# Output
+  output_path: "$(find fast_calib)/output"

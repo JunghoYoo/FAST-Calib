@@ -1,0 +1,511 @@
+root@008551e5338d:/catkin_ws# roslaunch fast_calib calib.launch
+... logging to /root/.ros/log/d1e7990c-353c-11f1-966e-da0c9a56f96f/roslaunch-008551e5338d-9511.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://008551e5338d:33289/
+
+SUMMARY
+========
+
+PARAMETERS
+ * /bag_path: /catkin_ws/src/FA...
+ * /circle_radius: 0.12
+ * /cx: 659.1046207698428
+ * /cy: 520.7211142128037
+ * /delta_height_circles: 0.4
+ * /delta_height_qr_center: 0.35
+ * /delta_width_circles: 0.5
+ * /delta_width_qr_center: 0.55
+ * /distortion_model: equidistant
+ * /fx: 465.8118528320383
+ * /fy: 465.20827418408305
+ * /image_path: /catkin_ws/src/FA...
+ * /k1: -0.02041767054844...
+ * /k2: -0.00034645075189...
+ * /k3: -0.00400059037450...
+ * /k4: 0.002444473898950...
+ * /lidar_topic: /livox/lidar
+ * /marker_size: 0.2
+ * /output_path: /catkin_ws/src/FA...
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+ * /x_max: 2.0
+ * /x_min: 0.5
+ * /y_max: 1.5
+ * /y_min: -1.5
+ * /z_max: 2.0
+ * /z_min: 0.1
+
+NODES
+  /
+    fast_calib (fast_calib/fast_calib)
+    rviz (rviz/rviz)
+
+auto-starting new master
+process[master]: started with pid [9526]
+ROS_MASTER_URI=http://localhost:11311
+
+setting /run_id to d1e7990c-353c-11f1-966e-da0c9a56f96f
+process[rosout-1]: started with pid [9543]
+started core service [/rosout]
+process[fast_calib-2]: started with pid [9550]
+process[rviz-3]: started with pid [9551]
+[QRDetect] Using equidistant (fisheye) camera model.
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[INFO] [1775867076.623769403]: Loading the rosbag /catkin_ws/src/FAST-Calib/calib_data/DataBag_2026-04-09-10-20-34/data.bag
+[INFO] [1775867077.337305131]: Loaded 11960160 points from the rosbag.
+4 centers found. Iterating over 1 possible sets of candidates
+[INFO] [1775867077.542337365]: Filtered cloud size: 1189315
+[INFO] [1775867077.602784039]: Filtered cloud size: 225295
+[INFO] [1775867077.654474800]: Plane cloud size: 141852
+[INFO] [1775867080.476412469]: Extracted 6967 edge points.
+[INFO] [1775867080.492043501]: Number of edge clusters: 5
+[Record] Saved four pairs of circular hole centers to /catkin_ws/src/FAST-Calib/output/circle_center_record.txt
+[Result] RMSE: 0.0015 m
+[Result] Single-scene calibration: extrinsic parameters T_cam_lidar = 
+-0.016904 -0.999857 -0.000450 -0.041617
+ 0.441976 -0.007068 -0.896999 -0.123232
+ 0.896868 -0.015361  0.442032 -0.013505
+ 0.000000  0.000000  0.000000  1.000000
+[Result] Single-scene calibration results saved to /catkin_ws/src/FAST-Calib/output/single_calib_result.txt
+[Result] Saved colored point cloud to: /catkin_ws/src/FAST-Calib/output/colored_cloud.pcd
+^C[rviz-3] killing on exit
+[fast_calib-2] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+done
+root@008551e5338d:/catkin_ws# roslaunch fast_calib calib.launch
+... logging to /root/.ros/log/fddc33ba-353c-11f1-950c-da0c9a56f96f/roslaunch-008551e5338d-10416.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://008551e5338d:42899/
+
+SUMMARY
+========
+
+PARAMETERS
+ * /bag_path: /catkin_ws/src/FA...
+ * /circle_radius: 0.12
+ * /cx: 659.1046207698428
+ * /cy: 520.7211142128037
+ * /delta_height_circles: 0.4
+ * /delta_height_qr_center: 0.35
+ * /delta_width_circles: 0.5
+ * /delta_width_qr_center: 0.55
+ * /distortion_model: equidistant
+ * /fx: 465.8118528320383
+ * /fy: 465.20827418408305
+ * /image_path: /catkin_ws/src/FA...
+ * /k1: -0.02041767054844...
+ * /k2: -0.00034645075189...
+ * /k3: -0.00400059037450...
+ * /k4: 0.002444473898950...
+ * /lidar_topic: /livox/lidar
+ * /marker_size: 0.2
+ * /output_path: /catkin_ws/src/FA...
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+ * /x_max: 2.0
+ * /x_min: 0.5
+ * /y_max: 1.5
+ * /y_min: -1.5
+ * /z_max: 2.0
+ * /z_min: 0.1
+
+NODES
+  /
+    fast_calib (fast_calib/fast_calib)
+    rviz (rviz/rviz)
+
+auto-starting new master
+process[master]: started with pid [10432]
+ROS_MASTER_URI=http://localhost:11311
+
+setting /run_id to fddc33ba-353c-11f1-950c-da0c9a56f96f
+process[rosout-1]: started with pid [10456]
+started core service [/rosout]
+process[fast_calib-2]: started with pid [10463]
+process[rviz-3]: started with pid [10464]
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[QRDetect] Using equidistant (fisheye) camera model.
+[INFO] [1775867150.363289582]: Loading the rosbag /catkin_ws/src/FAST-Calib/calib_data/DataBag_2026-04-09-10-22-54/data.bag
+[INFO] [1775867151.093059193]: Loaded 11940672 points from the rosbag.
+4 centers found. Iterating over 1 possible sets of candidates
+[INFO] [1775867151.293301782]: Filtered cloud size: 1142487
+[INFO] [1775867151.350027235]: Filtered cloud size: 220067
+[INFO] [1775867151.374904582]: Plane cloud size: 161920
+[INFO] [1775867154.716967687]: Extracted 6105 edge points.
+[INFO] [1775867154.730525403]: Number of edge clusters: 4
+[Record] Saved four pairs of circular hole centers to /catkin_ws/src/FAST-Calib/output/circle_center_record.txt
+[Result] RMSE: 0.0024 m
+[Result] Single-scene calibration: extrinsic parameters T_cam_lidar = 
+-0.005766 -0.999984 -0.000279 -0.054221
+ 0.442943 -0.002304 -0.896547 -0.125912
+ 0.896531 -0.005293  0.442949 -0.015094
+ 0.000000  0.000000  0.000000  1.000000
+[Result] Single-scene calibration results saved to /catkin_ws/src/FAST-Calib/output/single_calib_result.txt
+[Result] Saved colored point cloud to: /catkin_ws/src/FAST-Calib/output/colored_cloud.pcd
+[rviz-3] process has finished cleanly
+log file: /root/.ros/log/fddc33ba-353c-11f1-950c-da0c9a56f96f/rviz-3*.log
+^C[fast_calib-2] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+done
+root@008551e5338d:/catkin_ws# roslaunch fast_calib calib.launch
+... logging to /root/.ros/log/25f03158-353d-11f1-8e96-da0c9a56f96f/roslaunch-008551e5338d-11275.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://008551e5338d:33109/
+
+SUMMARY
+========
+
+PARAMETERS
+ * /bag_path: /catkin_ws/src/FA...
+ * /circle_radius: 0.12
+ * /cx: 659.1046207698428
+ * /cy: 520.7211142128037
+ * /delta_height_circles: 0.4
+ * /delta_height_qr_center: 0.35
+ * /delta_width_circles: 0.5
+ * /delta_width_qr_center: 0.55
+ * /distortion_model: equidistant
+ * /fx: 465.8118528320383
+ * /fy: 465.20827418408305
+ * /image_path: /catkin_ws/src/FA...
+ * /k1: -0.02041767054844...
+ * /k2: -0.00034645075189...
+ * /k3: -0.00400059037450...
+ * /k4: 0.002444473898950...
+ * /lidar_topic: /livox/lidar
+ * /marker_size: 0.2
+ * /output_path: /catkin_ws/src/FA...
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+ * /x_max: 2.0
+ * /x_min: 0.5
+ * /y_max: 1.5
+ * /y_min: -1.5
+ * /z_max: 2.0
+ * /z_min: 0.1
+
+NODES
+  /
+    fast_calib (fast_calib/fast_calib)
+    rviz (rviz/rviz)
+
+auto-starting new master
+process[master]: started with pid [11290]
+ROS_MASTER_URI=http://localhost:11311
+
+setting /run_id to 25f03158-353d-11f1-8e96-da0c9a56f96f
+process[rosout-1]: started with pid [11317]
+started core service [/rosout]
+process[fast_calib-2]: started with pid [11324]
+process[rviz-3]: started with pid [11325]
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[QRDetect] Using equidistant (fisheye) camera model.
+[INFO] [1775867217.605047901]: Loading the rosbag /catkin_ws/src/FAST-Calib/calib_data/DataBag_2026-04-09-10-25-55/data.bag
+[INFO] [1775867218.344923334]: Loaded 11960160 points from the rosbag.
+4 centers found. Iterating over 1 possible sets of candidates
+[INFO] [1775867218.544267558]: Filtered cloud size: 1164558
+[INFO] [1775867218.602324598]: Filtered cloud size: 236982
+[INFO] [1775867218.636593393]: Plane cloud size: 161767
+[INFO] [1775867221.955749341]: Extracted 6772 edge points.
+[INFO] [1775867221.971480300]: Number of edge clusters: 5
+[Record] Saved four pairs of circular hole centers to /catkin_ws/src/FAST-Calib/output/circle_center_record.txt
+[Result] RMSE: 0.0023 m
+[Result] Single-scene calibration: extrinsic parameters T_cam_lidar = 
+-0.016215 -0.999765  0.014388 -0.047334
+ 0.445227 -0.020104 -0.895192 -0.127925
+ 0.895271 -0.008110  0.445449 -0.015292
+ 0.000000  0.000000  0.000000  1.000000
+[Result] Single-scene calibration results saved to /catkin_ws/src/FAST-Calib/output/single_calib_result.txt
+[Result] Saved colored point cloud to: /catkin_ws/src/FAST-Calib/output/colored_cloud.pcd
+[rviz-3] process has finished cleanly
+log file: /root/.ros/log/25f03158-353d-11f1-8e96-da0c9a56f96f/rviz-3*.log
+^C[fast_calib-2] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+done
+root@008551e5338d:/catkin_ws# roslaunch fast_calib calib.launch
+... logging to /root/.ros/log/3bd805ae-353d-11f1-a6f3-da0c9a56f96f/roslaunch-008551e5338d-11843.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://008551e5338d:42197/
+
+SUMMARY
+========
+
+PARAMETERS
+ * /bag_path: /catkin_ws/src/FA...
+ * /circle_radius: 0.12
+ * /cx: 659.1046207698428
+ * /cy: 520.7211142128037
+ * /delta_height_circles: 0.4
+ * /delta_height_qr_center: 0.35
+ * /delta_width_circles: 0.5
+ * /delta_width_qr_center: 0.55
+ * /distortion_model: equidistant
+ * /fx: 465.8118528320383
+ * /fy: 465.20827418408305
+ * /image_path: /catkin_ws/src/FA...
+ * /k1: -0.02041767054844...
+ * /k2: -0.00034645075189...
+ * /k3: -0.00400059037450...
+ * /k4: 0.002444473898950...
+ * /lidar_topic: /livox/lidar
+ * /marker_size: 0.2
+ * /output_path: /catkin_ws/src/FA...
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+ * /x_max: 2.0
+ * /x_min: 0.5
+ * /y_max: 1.5
+ * /y_min: -1.5
+ * /z_max: 2.0
+ * /z_min: 0.1
+
+NODES
+  /
+    fast_calib (fast_calib/fast_calib)
+    rviz (rviz/rviz)
+
+auto-starting new master
+process[master]: started with pid [11861]
+ROS_MASTER_URI=http://localhost:11311
+
+setting /run_id to 3bd805ae-353d-11f1-a6f3-da0c9a56f96f
+process[rosout-1]: started with pid [11878]
+started core service [/rosout]
+process[fast_calib-2]: started with pid [11885]
+process[rviz-3]: started with pid [11886]
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[QRDetect] Using equidistant (fisheye) camera model.
+[INFO] [1775867254.351879320]: Loading the rosbag /catkin_ws/src/FAST-Calib/calib_data/DataBag_2026-04-09-11-07-33/data.bag
+[INFO] [1775867255.099518860]: Loaded 11959968 points from the rosbag.
+4 centers found. Iterating over 1 possible sets of candidates
+[INFO] [1775867255.303319025]: Filtered cloud size: 1204071
+[INFO] [1775867255.362758619]: Filtered cloud size: 225939
+[INFO] [1775867255.400997221]: Plane cloud size: 152160
+[INFO] [1775867258.417705957]: Extracted 6781 edge points.
+[INFO] [1775867258.433495677]: Number of edge clusters: 5
+[Record] Saved four pairs of circular hole centers to /catkin_ws/src/FAST-Calib/output/circle_center_record.txt
+[Result] RMSE: 0.0018 m
+[Result] Single-scene calibration: extrinsic parameters T_cam_lidar = 
+-0.001154 -0.999983  0.005748 -0.063386
+ 0.454611 -0.005644 -0.890673 -0.141249
+ 0.890690  0.001586  0.454610 -0.014686
+ 0.000000  0.000000  0.000000  1.000000
+[Result] Single-scene calibration results saved to /catkin_ws/src/FAST-Calib/output/single_calib_result.txt
+[Result] Saved colored point cloud to: /catkin_ws/src/FAST-Calib/output/colored_cloud.pcd
+[rviz-3] process has finished cleanly
+log file: /root/.ros/log/3bd805ae-353d-11f1-a6f3-da0c9a56f96f/rviz-3*.log
+^C[fast_calib-2] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+done
+root@008551e5338d:/catkin_ws# roslaunch fast_calib calib.launch
+... logging to /root/.ros/log/502f19b6-353d-11f1-be4e-da0c9a56f96f/roslaunch-008551e5338d-12416.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://008551e5338d:42133/
+
+SUMMARY
+========
+
+PARAMETERS
+ * /bag_path: /catkin_ws/src/FA...
+ * /circle_radius: 0.12
+ * /cx: 659.1046207698428
+ * /cy: 520.7211142128037
+ * /delta_height_circles: 0.4
+ * /delta_height_qr_center: 0.35
+ * /delta_width_circles: 0.5
+ * /delta_width_qr_center: 0.55
+ * /distortion_model: equidistant
+ * /fx: 465.8118528320383
+ * /fy: 465.20827418408305
+ * /image_path: /catkin_ws/src/FA...
+ * /k1: -0.02041767054844...
+ * /k2: -0.00034645075189...
+ * /k3: -0.00400059037450...
+ * /k4: 0.002444473898950...
+ * /lidar_topic: /livox/lidar
+ * /marker_size: 0.2
+ * /output_path: /catkin_ws/src/FA...
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+ * /x_max: 2.0
+ * /x_min: 0.5
+ * /y_max: 1.5
+ * /y_min: -1.5
+ * /z_max: 2.0
+ * /z_min: 0.1
+
+NODES
+  /
+    fast_calib (fast_calib/fast_calib)
+    rviz (rviz/rviz)
+
+auto-starting new master
+process[master]: started with pid [12431]
+ROS_MASTER_URI=http://localhost:11311
+
+setting /run_id to 502f19b6-353d-11f1-be4e-da0c9a56f96f
+process[rosout-1]: started with pid [12451]
+started core service [/rosout]
+process[fast_calib-2]: started with pid [12458]
+process[rviz-3]: started with pid [12459]
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[QRDetect] Using equidistant (fisheye) camera model.
+[INFO] [1775867288.478020058]: Loading the rosbag /catkin_ws/src/FAST-Calib/calib_data/DataBag_2026-04-09-11-12-40/data.bag
+[INFO] [1775867289.220172498]: Loaded 11960064 points from the rosbag.
+4 centers found. Iterating over 1 possible sets of candidates
+[INFO] [1775867289.421772498]: Filtered cloud size: 1205441
+[INFO] [1775867289.481301881]: Filtered cloud size: 233554
+[INFO] [1775867289.511137376]: Plane cloud size: 163056
+[INFO] [1775867292.876723385]: Extracted 6954 edge points.
+[INFO] [1775867292.893142560]: Number of edge clusters: 5
+[Record] Saved four pairs of circular hole centers to /catkin_ws/src/FAST-Calib/output/circle_center_record.txt
+[Result] RMSE: 0.0020 m
+[Result] Single-scene calibration: extrinsic parameters T_cam_lidar = 
+-0.015090 -0.999825  0.011095 -0.048254
+ 0.451405 -0.016713 -0.892163 -0.136937
+ 0.892192 -0.008454  0.451578 -0.014948
+ 0.000000  0.000000  0.000000  1.000000
+[Result] Single-scene calibration results saved to /catkin_ws/src/FAST-Calib/output/single_calib_result.txt
+[Result] Saved colored point cloud to: /catkin_ws/src/FAST-Calib/output/colored_cloud.pcd
+[rviz-3] process has finished cleanly
+log file: /root/.ros/log/502f19b6-353d-11f1-be4e-da0c9a56f96f/rviz-3*.log
+^C[fast_calib-2] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+done
+root@008551e5338d:/catkin_ws# roslaunch fast_calib multi_calib.launch
+... logging to /root/.ros/log/81787a62-353d-11f1-b87a-da0c9a56f96f/roslaunch-008551e5338d-13393.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://008551e5338d:36571/
+
+SUMMARY
+========
+
+PARAMETERS
+ * /bag_path: /catkin_ws/src/FA...
+ * /circle_radius: 0.12
+ * /cx: 659.1046207698428
+ * /cy: 520.7211142128037
+ * /delta_height_circles: 0.4
+ * /delta_height_qr_center: 0.35
+ * /delta_width_circles: 0.5
+ * /delta_width_qr_center: 0.55
+ * /distortion_model: equidistant
+ * /fx: 465.8118528320383
+ * /fy: 465.20827418408305
+ * /image_path: /catkin_ws/src/FA...
+ * /k1: -0.02041767054844...
+ * /k2: -0.00034645075189...
+ * /k3: -0.00400059037450...
+ * /k4: 0.002444473898950...
+ * /lidar_topic: /livox/lidar
+ * /marker_size: 0.2
+ * /output_path: /catkin_ws/src/FA...
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+ * /x_max: 2.0
+ * /x_min: 0.5
+ * /y_max: 1.5
+ * /y_min: -1.5
+ * /z_max: 2.0
+ * /z_min: 0.1
+
+NODES
+  /
+    multi_fast_calib (fast_calib/multi_fast_calib)
+
+auto-starting new master
+process[master]: started with pid [13415]
+ROS_MASTER_URI=http://localhost:11311
+
+setting /run_id to 81787a62-353d-11f1-b87a-da0c9a56f96f
+process[rosout-1]: started with pid [13432]
+started core service [/rosout]
+process[multi_fast_calib-2]: started with pid [13439]
+[Multi] Detected 5 scene(s) in /catkin_ws/src/FAST-Calib/output/circle_center_record.txt
+[Multi] Searching 10 possible trios...
+  trio (0,1,2)  RMSE = 0.0041 m
+  trio (0,1,3)  RMSE = 0.0032 m
+  trio (0,1,4)  RMSE = 0.0034 m
+  trio (0,2,3)  RMSE = 0.0042 m
+  trio (0,2,4)  RMSE = 0.0037 m
+  trio (0,3,4)  RMSE = 0.0035 m
+  trio (1,2,3)  RMSE = 0.0042 m
+  trio (1,2,4)  RMSE = 0.0039 m
+  trio (1,3,4)  RMSE = 0.0036 m
+  trio (2,3,4)  RMSE = 0.0036 m
+[Multi] Best trio: scenes 0, 1, 3  (RMSE = 0.0032 m, 10 trios evaluated)
+[Multi] Using 3 scene(s), 12 correspondences from best trio.
+LiDAR centers:
+L[0]: (1.1026, 0.3105, 0.8503)
+L[1]: (1.2666, 0.2997, 0.4845)
+L[2]: (1.2799, -0.2014, 0.5047)
+L[3]: (1.1159, -0.1924, 0.8708)
+L[4]: (1.0826, 0.3178, 0.8483)
+L[5]: (1.2516, 0.3046, 0.4854)
+L[6]: (1.3818, -0.1746, 0.5635)
+L[7]: (1.2125, -0.1635, 0.9287)
+L[8]: (1.0793, 0.2092, 0.8424)
+L[9]: (1.2502, 0.1975, 0.4813)
+L[10]: (1.2836, -0.3009, 0.5139)
+L[11]: (1.1119, -0.2920, 0.8774)
+QR centers:
+C[0]: (-0.3695, -0.4005, 1.3465)
+C[1]: (-0.3619, -0.0008, 1.3320)
+C[2]: (0.1372, -0.0093, 1.3606)
+C[3]: (0.1296, -0.4090, 1.3751)
+C[4]: (-0.3767, -0.4079, 1.3301)
+C[5]: (-0.3643, -0.0082, 1.3210)
+C[6]: (0.1115, -0.0195, 1.4741)
+C[7]: (0.0991, -0.4192, 1.4832)
+C[8]: (-0.2682, -0.4030, 1.3300)
+C[9]: (-0.2584, -0.0033, 1.3180)
+C[10]: (0.2395, -0.0141, 1.3619)
+C[11]: (0.2298, -0.4138, 1.3738)
+[Result] RMSE: 0.0032 m
+[Result] Multi-scene calibration: extrinsic parameters T_cam_lidar = 
+-0.008381 -0.999963  0.001992 -0.052774
+ 0.445510 -0.005517 -0.895260 -0.128613
+ 0.895238 -0.006616  0.445540 -0.014642
+ 0.000000  0.000000  0.000000  1.000000
+[Result] Multi-scene calibration results saved to /catkin_ws/src/FAST-Calib/output/multi_calib_result.txt
+[multi_fast_calib-2] process has finished cleanly
+log file: /root/.ros/log/81787a62-353d-11f1-b87a-da0c9a56f96f/multi_fast_calib-2*.log
+^C[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+done
+root@008551e5338d:/catkin_ws# 

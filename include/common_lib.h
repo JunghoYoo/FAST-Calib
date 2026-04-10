@@ -58,6 +58,10 @@ POINT_CLOUD_REGISTER_POINT_STRUCT(Common::Point,
 struct Params {
   double x_min, x_max, y_min, y_max, z_min, z_max;
   double fx, fy, cx, cy, k1, k2, p1, p2;
+  // Equidistant (fisheye) model uses [k1, k2, k3, k4]; k3, k4 default to 0 for pinhole
+  double k3, k4;
+  // "pinhole" (radtan: k1,k2,p1,p2) or "equidistant" (fisheye: k1,k2,k3,k4)
+  string distortion_model;
   double marker_size, delta_width_qr_center, delta_height_qr_center;
   double delta_width_circles, delta_height_circles, circle_radius;
   int min_detected_markers;
@@ -78,6 +82,11 @@ Params loadParameters(ros::NodeHandle &nh) {
   nh.param("k2", params.k2, 0.10996870793601);
   nh.param("p1", params.p1, 0.000157303079833973);
   nh.param("p2", params.p2, 0.000544930726278493);
+  // Equidistant (fisheye) only — ignored for pinhole/radtan
+  nh.param("k3", params.k3, 0.0);
+  nh.param("k4", params.k4, 0.0);
+  // "pinhole" (default, radtan distortion) or "equidistant" (fisheye distortion)
+  nh.param("distortion_model", params.distortion_model, string("pinhole"));
   nh.param("marker_size", params.marker_size, 0.2);
   nh.param("delta_width_qr_center", params.delta_width_qr_center, 0.55);
   nh.param("delta_height_qr_center", params.delta_height_qr_center, 0.35);
@@ -275,8 +284,10 @@ void saveCalibrationResults(const Params& params, const Eigen::Matrix4f& transfo
   std::ofstream outFile(outputDir + "single_calib_result.txt");
   if (outFile.is_open()) 
   {
+    const bool is_equidistant = (params.distortion_model == "equidistant" ||
+                                 params.distortion_model == "fisheye");
     outFile << "# FAST-LIVO2 calibration format\n";
-    outFile << "cam_model: Pinhole\n";
+    outFile << "cam_model: " << (is_equidistant ? "Equidistant" : "Pinhole") << "\n";
     outFile << "cam_width: " << img_input.cols << "\n";
     outFile << "cam_height: " << img_input.rows << "\n";
     outFile << "scale: 1.0\n";
@@ -284,10 +295,19 @@ void saveCalibrationResults(const Params& params, const Eigen::Matrix4f& transfo
     outFile << "cam_fy: " << params.fy << "\n";
     outFile << "cam_cx: " << params.cx << "\n";
     outFile << "cam_cy: " << params.cy << "\n";
-    outFile << "cam_d0: " << params.k1 << "\n";
-    outFile << "cam_d1: " << params.k2 << "\n";
-    outFile << "cam_d2: " << params.p1 << "\n";
-    outFile << "cam_d3: " << params.p2 << "\n";
+    if (is_equidistant) {
+      // Equidistant: [k1, k2, k3, k4]
+      outFile << "cam_d0: " << params.k1 << "\n";
+      outFile << "cam_d1: " << params.k2 << "\n";
+      outFile << "cam_d2: " << params.k3 << "\n";
+      outFile << "cam_d3: " << params.k4 << "\n";
+    } else {
+      // Pinhole/radtan: [k1, k2, p1, p2]
+      outFile << "cam_d0: " << params.k1 << "\n";
+      outFile << "cam_d1: " << params.k2 << "\n";
+      outFile << "cam_d2: " << params.p1 << "\n";
+      outFile << "cam_d3: " << params.p2 << "\n";
+    }
 
     outFile << "\nRcl: [" << std::fixed << std::setprecision(6);
     outFile << std::setw(10) << transformation(0, 0) << ", " << std::setw(10) << transformation(0, 1) << ", " << std::setw(10) << transformation(0, 2) << ",\n";

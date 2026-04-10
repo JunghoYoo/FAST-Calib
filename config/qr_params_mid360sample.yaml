@@ -1,0 +1,29 @@
+# Camera intrinsics  
+  # hik0406 - mid360
+  #cam_model: Pinhole
+  #cam_width: 1440
+  #cam_height: 1080
+  fx: 522.123514287681
+  fy: 522.275153384482
+  cx: 773.466430504725
+  cy: 534.053165700174
+  k1: 0.00324949759262203
+  k2: -0.0171040538369167
+  p1: 0.000669657443377146
+  p2: -0.000350205468789575
+
+# Calibration target parameters
+  marker_size: 0.20 # ArUco marker size (our test data uses 0.16m; adjust to match your marker size)
+  delta_width_qr_center: 0.55 # Half the distance between the centers of two markers in the horizontal direction 
+  delta_height_qr_center: 0.35 # Half the distance between the centers of two markers in the vertical direction
+  delta_width_circles: 0.5 # Distance between the centers of two circles in the horizontal direction
+  delta_height_circles: 0.4 # Distance between the centers of two circles in the vertical direction
+  circle_radius: 0.12 # Radius of the circle 
+
+# Input
+  lidar_topic: "/livox/lidar" # /ouster/points /livox/lidar
+  bag_path: "$(find fast_calib)/calib_data/mid360/22.bag"
+  image_path: "$(find fast_calib)/calib_data/mid360/22.png"
+
+# Output
+  output_path: "$(find fast_calib)/output"
